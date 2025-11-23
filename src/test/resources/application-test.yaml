@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: service-template-test
+
+# Base URL for the external API used during tests.
+# When WireMock is auto-configured, it exposes the dynamic port under the property `wiremock.server.port`.
+# We reference that here so that tests can run without additional property overrides.
+external:
+  api:
+    base-url: http://localhost:${wiremock.server.port}
+
+# Reduce noise from actuator/health checks during tests (optional, safe defaults)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info"
+  endpoint:
+    health:
+      show-details: never
