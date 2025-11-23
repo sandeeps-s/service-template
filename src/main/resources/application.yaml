@@ -17,3 +17,30 @@ management:
       enabled: true
     ratelimiters:
       enabled: true
+resilience4j:
+  circuitbreaker:
+    instances:
+      WeatherCB:
+        failure-rate-threshold: 50
+        minimum-number-of-calls: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state: 5s
+        permitted-number-of-calls-in-half-open-state: 3
+        sliding-window-size: 10
+        sliding-window-type: count_based
+  retry:
+    instances:
+      WeatherRetry:
+        max-attempts: 3
+        wait-duration: 1s
+        ignore-exceptions:
+          - java.util.concurrent.TimeoutException
+    metrics:
+      enabled: true
+  timelimiter:
+    instances:
+      WeatherTL:
+        timeout-duration: 2s
+        cancel-running-future: true
+    metrics:
+      enabled: true

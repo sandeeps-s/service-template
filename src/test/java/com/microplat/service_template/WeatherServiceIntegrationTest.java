@@ -35,7 +35,7 @@ public class WeatherServiceIntegrationTest {
                         .withBody("{\"city\": \"London\", \"temperature\": 20, \"description\": \"Cloudy\"}")));
 
         // Fetch weather data for London via ExternalApiCaller
-        WeatherData weatherData = externalApiCaller.getWeatherData("London");
+        WeatherData weatherData = externalApiCaller.getWeatherData("London").join();
 
         assertNotNull(weatherData);
         assertEquals("London", weatherData.city());
