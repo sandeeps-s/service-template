@@ -1,6 +1,10 @@
 spring:
   application:
     name: service-template-test
+  kafka:
+    listener:
+      # Prevent Kafka listeners from starting during tests unless explicitly enabled
+      auto-startup: false
 
 # Base URL for the external API used during tests.
 # When WireMock is auto-configured, it exposes the dynamic port under the property `wiremock.server.port`.

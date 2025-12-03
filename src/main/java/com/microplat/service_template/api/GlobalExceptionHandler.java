@@ -1,4 +1,4 @@
-package com.microplat.service_template.app;
+package com.microplat.service_template.api;
 
 import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import org.springframework.http.HttpStatus;

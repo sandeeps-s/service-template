@@ -1,5 +1,6 @@
-package com.microplat.service_template.app;
+package com.microplat.service_template.infra.webclient;
 
+import com.microplat.service_template.domain.WeatherData;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
 import io.github.resilience4j.timelimiter.annotation.TimeLimiter;

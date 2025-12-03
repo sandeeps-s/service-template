@@ -1,6 +1,18 @@
 spring:
   application:
     name: service-template
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: ${KAFKA_CONSUMER_GROUP:service-template}
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+topics:
+  checkoutCompleted: ${TOPIC_CHECKOUT_COMPLETED:checkout.completed}
+  orderCreated: ${TOPIC_ORDER_CREATED:order.created}
 external:
   api:
     base-url: ${EXTERNAL_API_BASE_URL}

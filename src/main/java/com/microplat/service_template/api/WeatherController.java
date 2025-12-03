@@ -1,5 +1,7 @@
-package com.microplat.service_template.app;
+package com.microplat.service_template.api;
 
+import com.microplat.service_template.infra.webclient.ExternalApiCaller;
+import com.microplat.service_template.domain.WeatherData;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

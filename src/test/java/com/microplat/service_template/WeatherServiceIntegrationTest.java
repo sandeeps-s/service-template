@@ -1,7 +1,7 @@
 package com.microplat.service_template;
 
-import com.microplat.service_template.app.ExternalApiCaller;
-import com.microplat.service_template.app.WeatherData;
+import com.microplat.service_template.infra.webclient.ExternalApiCaller;
+import com.microplat.service_template.domain.WeatherData;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
