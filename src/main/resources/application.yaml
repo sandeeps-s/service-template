@@ -1,6 +1,12 @@
 spring:
   application:
     name: service-template
+  autoconfigure:
+    # By default, exclude DB auto-configuration so the app can run without a DB.
+    # Activate the 'postgres' profile to enable DB integration.
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
     consumer:

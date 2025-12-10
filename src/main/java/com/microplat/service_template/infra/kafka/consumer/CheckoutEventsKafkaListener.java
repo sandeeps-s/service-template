@@ -2,11 +2,12 @@ package com.microplat.service_template.infra.kafka.consumer;
 
 import com.microplat.service_template.domain.CheckoutCompleted;
 import com.microplat.service_template.domain.CheckoutEventHandler;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.annotation.KafkaListeners;
 import org.springframework.stereotype.Component;
 
 @Component
+@ConditionalOnBean(CheckoutEventHandler.class)
 public class CheckoutEventsKafkaListener {
 
     private final CheckoutEventHandler checkoutEventHandler;

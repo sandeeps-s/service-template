@@ -1,6 +1,19 @@
 spring:
   application:
     name: service-template-test
+  autoconfigure:
+    # Enable DB auto-config in tests (override main profile setting)
+    exclude: []
+  datasource:
+    url: jdbc:h2:mem:service_template_test;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
   kafka:
     listener:
       # Prevent Kafka listeners from starting during tests unless explicitly enabled

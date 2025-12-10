@@ -1,0 +1,17 @@
+spring:
+  autoconfigure:
+    exclude: []
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/service_template}
+    username: ${SPRING_DATASOURCE_USERNAME:service_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:service_pass}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+# To use this profile, run with: --spring.profiles.active=postgres
